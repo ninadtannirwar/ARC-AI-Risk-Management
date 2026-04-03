@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ARC — Adaptive Risk Core · Singularity Engine v3.0
+    Owner: Bharath B | Hacksagon 2026 · App Development Track
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ⚠️  REQUIRED: Network access for Retrofit + WebSocket -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:mipmap/sym_def_app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@android:mipmap/sym_def_app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ARC"
+        android:usesCleartextTraffic="true">
+
+        <!-- Splash / Biometric gate -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Live Risk Dashboard -->
+        <activity
+            android:name=".RiskDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ARC Risk Engine</string>
+
+    <string name="engine_version">v3.0</string>
+    <string name="pipeline">T1: Math → T2: Market → T3: AI</string>
+</resources>
