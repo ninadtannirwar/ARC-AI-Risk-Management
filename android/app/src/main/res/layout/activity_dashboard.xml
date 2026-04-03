@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ARC — Adaptive Risk Core  ·  Singularity Engine v3.0
+    Hacksagon 2026  ·  App Development Track
+    Pranav · Kushal · Bharath B
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1117"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#x2B21;  ARC  Risk Dashboard"
+                    android:textColor="#64B5F6"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Singularity Engine v3.0  ·  Hacksagon 2026"
+                    android:textColor="#8B949E"
+                    android:textSize="10sp"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvConnectionStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#x25CB; Connecting&#x2026;"
+                android:textColor="#8B949E"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- ENGINE STATUS -->
+        <TextView
+            android:id="@+id/tvEngineStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="&#x25CB; Engine stopped"
+            android:textColor="#8B949E"
+            android:textSize="13sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp"
+            android:background="#161B22"
+            android:fontFamily="monospace" />
+
+        <!-- AI CONFIDENCE METER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#161B22"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="AI CONFIDENCE"
+                    android:textColor="#8B949E"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.12" />
+
+                <TextView
+                    android:id="@+id/tvTrustValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="#64B5F6"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressTrust"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="#64B5F6"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvRiskLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AWAITING DATA"
+                android:textColor="#8B949E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+        </LinearLayout>
+
+        <!-- THREE-TIER PIPELINE PANEL -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THREE-TIER PIPELINE"
+            android:textColor="#8B949E"
+            android:textSize="10sp"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <!-- Tier 1 Math -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#1C2128"
+                android:padding="10dp"
+                android:layout_marginEnd="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TIER 1"
+                    android:textColor="#CE93D8"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MATH SCORE"
+                    android:textColor="#8B949E"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/tvT1Score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#x2014;"
+                    android:textColor="#CE93D8"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gate &#x2265; 0.30"
+                    android:textColor="#484F58"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="M&#xB7;S&#xB7;V formula"
+                    android:textColor="#484F58"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <!-- Tier 2 Market -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#1C2128"
+                android:padding="10dp"
+                android:layout_marginEnd="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TIER 2"
+                    android:textColor="#80DEEA"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MARKET SCORE"
+                    android:textColor="#8B949E"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/tvT2Score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#x2014;"
+                    android:textColor="#80DEEA"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gate &#x2265; 0.40"
+                    android:textColor="#484F58"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I&#xB7;L&#xB7;A formula"
+                    android:textColor="#484F58"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <!-- Tier 3 AI -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#1C2128"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TIER 3"
+                    android:textColor="#64B5F6"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GEMINI AI"
+                    android:textColor="#8B949E"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/tvT3Score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#x2014;"
+                    android:textColor="#64B5F6"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gate &#x2265; 0.85"
+                    android:textColor="#484F58"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="confidence"
+                    android:textColor="#484F58"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- TRADE STATS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TRADE STATISTICS"
+            android:textColor="#8B949E"
+            android:textSize="10sp"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#161B22"
+                android:padding="10dp"
+                android:layout_marginEnd="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="OPEN" android:textColor="#8B949E" android:textSize="9sp" android:letterSpacing="0.1" />
+                <TextView android:id="@+id/tvTradesOpen" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textColor="#E6EDF3" android:textSize="24sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#161B22"
+                android:padding="10dp"
+                android:layout_marginEnd="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="CLOSED" android:textColor="#8B949E" android:textSize="9sp" android:letterSpacing="0.1" />
+                <TextView android:id="@+id/tvTradesClosed" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textColor="#E6EDF3" android:textSize="24sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#161B22"
+                android:padding="10dp"
+                android:layout_marginEnd="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="WIN RATE" android:textColor="#8B949E" android:textSize="9sp" android:letterSpacing="0.1" />
+                <TextView android:id="@+id/tvWinRate" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="&#x2014;"
+                    android:textColor="#4CAF50" android:textSize="20sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#161B22"
+                android:padding="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="AVG P/L" android:textColor="#8B949E" android:textSize="9sp" android:letterSpacing="0.1" />
+                <TextView android:id="@+id/tvAvgProfit" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="&#x2014;"
+                    android:textColor="#4CAF50" android:textSize="20sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#161B22"
+                android:padding="10dp"
+                android:layout_marginEnd="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="DAILY P/L" android:textColor="#8B949E" android:textSize="9sp" android:letterSpacing="0.1" />
+                <TextView android:id="@+id/tvDailyPnl" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0.0000 SOL"
+                    android:textColor="#E6EDF3" android:textSize="14sp" android:textStyle="bold" android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#161B22"
+                android:padding="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="GEMINI CALLS" android:textColor="#8B949E" android:textSize="9sp" android:letterSpacing="0.1" />
+                <TextView android:id="@+id/tvAiCalls" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0 / 20"
+                    android:textColor="#64B5F6" android:textSize="14sp" android:textStyle="bold" android:fontFamily="monospace" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ENGINE CONTROLS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btnStartEngine"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="START ENGINE"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:backgroundTint="#238636"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="6dp" />
+
+            <Button
+                android:id="@+id/btnStopEngine"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="KILL SWITCH"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:backgroundTint="#DA3633"
+                android:textColor="#FFFFFF"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <!-- LIVE LOG -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LIVE PIPELINE LOG"
+                android:textColor="#8B949E"
+                android:textSize="10sp"
+                android:letterSpacing="0.12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="purple=T1 · cyan=T2 · blue=T3 · green=SNIPE"
+                android:textColor="#484F58"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollLogs"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="#010409"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvLogs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="&#x2B21; ARC Singularity Engine v3.0 — Hacksagon 2026\n"
+                android:textColor="#8B949E"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp" />
+        </ScrollView>
+
+        <!-- FOOTER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pranav · Kushal · Bharath B  ·  T1: 0.40M+0.40S+0.20V  ·  T2: 0.35I+0.35L+0.30A  ·  T3: Gemini >=0.85"
+            android:textColor="#30363D"
+            android:textSize="9sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp" />
+
+    </LinearLayout>
+</ScrollView>
