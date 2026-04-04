@@ -1,0 +1,24 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+# Backend specific
+__pycache__/
+*.py[cod]
+*$py.class
+backend/logs/
+backend/simulation_data.csv
+backend/real_data.csv
+.env
+*.zip
